@@ -18,7 +18,7 @@ through there.
 ## Setup
 
 In order to use database cleaner in your project simply install it as
-a `devDependency`, using the link to a [release] tarball:
+a `devDependency`, using the link to a [release] tarball, for example:
 
 ```bash
 npm install --save-dev "https://github.com/porterville-citrus-inc/typeorm-database-cleaner/archive/refs/tags/typeorm-database-cleaner-1.0.3.tgz"
