@@ -18,10 +18,10 @@ through there.
 ## Setup
 
 In order to use database cleaner in your project simply install it as
-a `devDependency`.
+a `devDependency`, using the link to a [release] tarball, for example:
 
 ```bash
-npm install --save-dev typeorm-database-cleaner
+npm install --save-dev "https://github.com/porterville-citrus-inc/typeorm-database-cleaner/archive/refs/tags/typeorm-database-cleaner-1.0.3.tgz"
 ```
 
 Then in the relevant testing files you can setup DatabaseCleaner to
@@ -48,6 +48,8 @@ And then clean your database whenever you like.
 DatabaseCleaner.clean(connection); // connection is a typeorm Connection object
 ```
 
+[release]: https://github.com/porterville-citrus-inc/typeorm-database-cleaner/releases
+
 ## Extending
 
 You can create your own cleaning strategy by inheriting from
@@ -66,8 +68,30 @@ In order to develop on the library itself, do the following things.
 1. Create the testing database: `createdb typeorm-database-cleaner-test`
 1. Run the tests: `npm test`
 
-## Publish to npm
+## Releasing
 
-1. Bump the version using `npm version [major | minor | patch]`
-1. Build the modules `npm run build`
-1. Publish to npm `npm publish`
+This package is intended for use directly from Github, using NPM's ability to
+add a dependency from a given URL. To create a new release for use this way, run
+one of the included NPM scripts, as described below.
+
+> :information_source: Before running these scripts for the first time:
+> - Install and authenticate the Github `gh` CLI.
+> - Configure the default remote repo: `gh repo set-default`
+
+To release incrementing the version:
+
+```sh
+npm run release --next-ver=minor # Or any string accepted by `npm version`.
+```
+
+To release incrementing the patch version by one:
+
+```sh
+npm run rel:patch
+```
+
+To release without incrementing the version (useful when testing):
+
+```sh
+npm run release
+```
