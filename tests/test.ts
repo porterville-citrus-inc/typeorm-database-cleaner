@@ -1,18 +1,24 @@
 import { expect } from "chai";
-import { Connection, createConnection } from "typeorm";
+import { DataSource } from "typeorm";
 import { DatabaseCleaner, FastTruncateStrategy, FullSychronizeStrategy, NullStrategy } from "../src/index";
-import { User } from "./entities/User";
 import { Purchase } from "./entities/Purchase";
+import { User } from "./entities/User";
 
-let connection: Connection;
+let connection: DataSource;
 
 describe("DatabaseCleaner", () => {
   before(async () => {
-    connection = await createConnection();
+    connection = new DataSource({
+      type: "postgres",
+      database: "typeorm-cleaner-tests",
+      entities: [ User, Purchase ],
+    });
+    
+    await connection.initialize();
   });
 
   after(async () => {
-    await connection.close();
+    await connection.destroy();
   });
 
   beforeEach(async () => {
