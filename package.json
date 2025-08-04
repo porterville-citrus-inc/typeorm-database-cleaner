@@ -32,8 +32,8 @@
     "pg": "^8.7.1",
     "reflect-metadata": "^0.2.2",
     "rimraf": "^5.0.10",
-    "rollup": "^2.56.0",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup": "^4.46.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "ts-node": "^10.1.0",
     "typeorm": "^0.3.x",
     "typescript": "^4.3.5"
